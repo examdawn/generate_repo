@@ -20,6 +20,7 @@ def create_folder_structure(course, subjects, labs, current_sem):
             f.write(f"---\norder: 0\ntitle: {subject} - Solved Questions\n---\n# Solved Questions - {subject}\n")
         with open(f"{base_path}/{current_sem}/{subject}/notes.md", "w") as f:
             f.write(f"---\norder: 0\ntitle: {subject} - Notes\n---\n# Notes - {subject}\n")
+        print(f"Done generating folder: {base_path}/{current_sem}/{subject}")
 
     for lab in labs:
         os.makedirs(f"{base_path}/{current_sem}/{lab}/lab", exist_ok=True)
@@ -44,5 +45,7 @@ if __name__ == "__main__":
     subjects = args.subjects if args.subjects else []
     labs = args.labs if args.labs else []
     current_sem = args.currentsem
+
+    subjects+=labs # Lab subjects are normal subjects too!
 
     create_folder_structure(course, subjects, labs, current_sem)
