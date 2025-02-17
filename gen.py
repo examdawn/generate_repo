@@ -38,7 +38,7 @@ if __name__ == "__main__":
     parser.add_argument("--course", required=True, help="Course year and name (e.g., 2023_BCA)")
     parser.add_argument("--subjects", nargs="+", help="List of subjects")
     parser.add_argument("--labs", nargs="+", help="List of labs")
-    parser.add_argument("--currentsem", help="Current semester folder name (e.g., 3rdsem)")
+    parser.add_argument("--addsem", help="Current semester folder name (e.g., 3rdsem)")
     args = parser.parse_args()
 
     course = args.course

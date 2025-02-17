@@ -20,7 +20,7 @@ python generate_structure.py --course <your_course> --subjects <subject1> <subje
 To generate a folder structure for subjects "Math" and "Science" and labs "PhysicsLab" and "ChemistryLab", use the following command:
 
 ```sh
-python generate_structure.py --course NEP2020_2023_BCA --subjects Sub1 Sub2 --labs Sub1 Sub3
+python generate_structure.py --course NEP2020_2023_BCA --addsem 3rdsem --subjects Sub1 Sub2 --labs Sub1 Sub3
 ```
 
 ### Folder Structure
