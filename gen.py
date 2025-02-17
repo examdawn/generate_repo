@@ -44,7 +44,7 @@ if __name__ == "__main__":
     course = args.course
     subjects = args.subjects if args.subjects else []
     labs = args.labs if args.labs else []
-    current_sem = args.currentsem
+    current_sem = args.addsem
 
     subjects+=labs # Lab subjects are normal subjects too!
 
