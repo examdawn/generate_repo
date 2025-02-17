@@ -1,0 +1,86 @@
+name: Course Structure Generator
+on:
+  workflow_dispatch:
+    inputs:
+      course:
+        description: 'Course name (e.g., NEP2020_2023_BCA)'
+        required: true
+      addsem:
+        description: 'Semester to add (e.g., 3rdsem)'
+        required: true
+      subjects:
+        description: 'Comma-separated subjects (e.g., Sub1,Sub2)'
+        required: true
+      labs:
+        description: 'Comma-separated labs (e.g., Sub1,Sub3)'
+        required: true
+
+jobs:
+  generate-course:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      repository-projects: write
+    steps:
+      - name: Checkout current repo
+        uses: actions/checkout@v4
+
+      - name: Configure Git
+        run: |
+          git config --global user.name "${{ github.actor }}"
+          git config --global user.email "${{ github.actor }}@users.noreply.github.com"
+
+      - name: Verify/Create Repository
+        id: repo-check
+        run: |
+          # Check repo existence
+          STATUS=$(curl -s -o /dev/null -w "%{http_code}" \
+            -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            https://api.github.com/repos/examdawn-playground/${{ inputs.course }})
+          
+          if [ $STATUS -ne 200 ]; then
+            # Create repo if not exists
+            curl -X POST \
+              -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+              -H "Accept: application/vnd.github+json" \
+              https://api.github.com/orgs/examdawn-playground/repos \
+              -d '{"name":"${{ inputs.course }}","private":false}'
+            echo "repo_created=true" >> $GITHUB_OUTPUT
+          else
+            echo "repo_created=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Clone Target Repository
+        run: |
+          git clone https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/examdawn-playground/${{ inputs.course }}.git
+
+      - name: Check Semester Directory
+        id: dir-check
+        run: |
+          if [ -d "${{ inputs.course }}/${{ inputs.addsem }}" ]; then
+            echo "directory_exists=true" >> $GITHUB_OUTPUT
+          else
+            echo "directory_exists=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Clean Existing Directory
+        if: steps.dir-check.outputs.directory_exists == 'false'
+        run: |
+          rm -rf ${{ inputs.course }}/
+
+      - name: Generate Course Structure
+        if: steps.dir-check.outputs.directory_exists == 'false'
+        run: |
+          python generate_structure.py \
+            --course "${{ inputs.course }}" \
+            --addsem "${{ inputs.addsem }}" \
+            --subjects ${${inputs.subjects}//,/ } \
+            --labs ${${inputs.labs}//,/ }
+
+      - name: Commit and Push Changes
+        if: steps.dir-check.outputs.directory_exists == 'false'
+        run: |
+          cd ${{ inputs.course }}
+          git add .
+          git commit -m "Generated ${{ inputs.addsem }} structure"
+          git push origin main
