@@ -83,6 +83,7 @@ jobs:
           rm .gitignore -f || true
           mv ${{ inputs.course }}/* gitrepo_dir
           cd gitrepo_dir
+          git switch -c contents
           git add .
           git commit -m "Auto-Generated ${{ inputs.addsem }} structure"
           git push origin contents
