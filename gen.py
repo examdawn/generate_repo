@@ -22,10 +22,16 @@ def create_folder_structure(course, subjects, labs):
             f.write(f"---\norder: 0\ntitle: {lab} - Syllabus\n---\n# {lab}\n")
         with open(f"{base_path}/{lab}/lab/index.md", "w") as f:
             f.write(f"---\norder: 0\ntitle: {lab} - Lab Records\n---\n# Lab Records - {lab}\n")
+        with open(f"{base_path}/{lab}/assignments/index.md", "w") as f:
+            f.write(f"---\norder: 0\ntitle: {lab} - Assignments\n---\n# Assignments - {lab}\n")
+        with open(f"{base_path}/{lab}/solved/index.md", "w") as f:
+            f.write(f"---\norder: 0\ntitle: {lab} - Solved Questions\n---\n# Solved Questions - {lab}\n")
+        with open(f"{base_path}/{lab}/notes/index.md", "w") as f:
+            f.write(f"---\norder: 0\ntitle: {lab} - Notes\n---\n# Notes - {lab}\n")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Generate folder structure for subjects and labs.")
-    parser.add_argument("--course", required=True, help="Course year and name (e.g., NEP2020_2023_BCA)")
+    parser.add_argument("--course", required=True, help="Course year and name (e.g., 2023_BCA)")
     parser.add_argument("--subjects", nargs="+", help="List of subjects")
     parser.add_argument("--labs", nargs="+", help="List of labs")
     args = parser.parse_args()
