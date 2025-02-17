@@ -84,5 +84,5 @@ jobs:
           mv ${{ inputs.course }}/* gitrepo_dir
           cd gitrepo_dir
           git add .
-          git commit -m "Generated ${{ inputs.addsem }} structure"
+          git commit -m "Auto-Generated ${{ inputs.addsem }} structure"
           git push origin main
