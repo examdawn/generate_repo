@@ -85,4 +85,4 @@ jobs:
           cd gitrepo_dir
           git add .
           git commit -m "Auto-Generated ${{ inputs.addsem }} structure"
-          git push origin main
+          git push origin contents
