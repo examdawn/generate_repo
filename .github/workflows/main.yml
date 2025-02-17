@@ -52,7 +52,7 @@ jobs:
 
       - name: Clone Target Repository
         run: |
-          git clone https://${{ github.actor }}:${{ secrets.PLAYGROUND_PAT }}@github.com/examdawn-playground/${{ inputs.course }}.git
+          git clone https://${{ github.actor }}:${{ secrets.PLAYGROUND_PAT }}@github.com/examdawn-playground/${{ inputs.course }}.git gitrepo_dir
 
       - name: Check Semester Directory
         id: dir-check
@@ -81,7 +81,8 @@ jobs:
         if: steps.dir-check.outputs.directory_exists == 'false'
         run: |
           rm .gitignore -f || true
-          cd ${{ inputs.course }}
+          mv ${{ inputs.course }}/* gitrepo_dir
+          cd gitrepo_dir
           git add .
           git commit -m "Generated ${{ inputs.addsem }} structure"
           git push origin main
