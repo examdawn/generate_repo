@@ -9,10 +9,10 @@ on:
         description: 'Semester to add (e.g., 3rdsem)'
         required: true
       subjects:
-        description: 'Comma-separated subjects (e.g., Sub1,Sub2)'
+        description: 'Space-separated subjects (e.g., Sub1 Sub2)'
         required: true
       labs:
-        description: 'Comma-separated labs (e.g., Sub1,Sub3)'
+        description: 'Space-separated labs (e.g., Sub1 Sub3)'
         required: true
 
 jobs:
