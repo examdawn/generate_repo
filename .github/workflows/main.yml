@@ -80,6 +80,7 @@ jobs:
       - name: Commit and Push Changes
         if: steps.dir-check.outputs.directory_exists == 'false'
         run: |
+          rm .gitignore -f || true
           cd ${{ inputs.course }}
           git add .
           git commit -m "Generated ${{ inputs.addsem }} structure"
