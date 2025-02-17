@@ -71,7 +71,7 @@ jobs:
       - name: Generate Course Structure
         if: steps.dir-check.outputs.directory_exists == 'false'
         run: |
-          python generate_structure.py \
+          python gen.py \
             --course "${{ inputs.course }}" \
             --addsem "${{ inputs.addsem }}" \
             --subjects ${{inputs.subjects}} \

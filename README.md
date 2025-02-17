@@ -1,6 +1,6 @@
 # Folder Structure Generation Script
 
-This repository contains a script `generate_structure.py` that generates a generic folder structure when provided with a list of subjects and labs. 
+This repository contains a script `gen.py` that generates a generic folder structure when provided with a list of subjects and labs. 
 
 ## Usage
 
@@ -8,11 +8,11 @@ To use the script, follow the instructions below:
 
 1. Ensure you have Python installed on your system.
 2. Open a terminal or command prompt.
-3. Navigate to the directory where `generate_structure.py` is located.
+3. Navigate to the directory where `gen.py` is located.
 4. Run the script with the following command:
 
 ```sh
-python generate_structure.py --course <your_course> --subjects <subject1> <subject2> ... --labs <lab1> <lab2> ...
+python gen.py --course <your_course> --subjects <subject1> <subject2> ... --labs <lab1> <lab2> ...
 ```
 
 ### Example
@@ -20,7 +20,7 @@ python generate_structure.py --course <your_course> --subjects <subject1> <subje
 To generate a folder structure for subjects "Math" and "Science" and labs "PhysicsLab" and "ChemistryLab", use the following command:
 
 ```sh
-python generate_structure.py --course NEP2020_2023_BCA --addsem 3rdsem --subjects Sub1 Sub2 --labs Sub1 Sub3
+python gen.py --course NEP2020_2023_BCA --addsem 3rdsem --subjects Sub1 Sub2 --labs Sub1 Sub3
 ```
 
 ### Folder Structure
