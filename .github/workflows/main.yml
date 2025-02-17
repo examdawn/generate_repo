@@ -35,13 +35,13 @@ jobs:
         run: |
           # Check repo existence
           STATUS=$(curl -s -o /dev/null -w "%{http_code}" \
-            -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            -H "Authorization: token ${{ secrets.PLAYGROUND_PAT }}" \
             https://api.github.com/repos/examdawn-playground/${{ inputs.course }})
           
           if [ $STATUS -ne 200 ]; then
             # Create repo if not exists
             curl -X POST \
-              -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+              -H "Authorization: token ${{ secrets.PLAYGROUND_PAT }}" \
               -H "Accept: application/vnd.github+json" \
               https://api.github.com/orgs/examdawn-playground/repos \
               -d '{"name":"${{ inputs.course }}","private":false}'
@@ -52,7 +52,7 @@ jobs:
 
       - name: Clone Target Repository
         run: |
-          git clone https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/examdawn-playground/${{ inputs.course }}.git
+          git clone https://${{ github.actor }}:${{ secrets.PLAYGROUND_PAT }}@github.com/examdawn-playground/${{ inputs.course }}.git
 
       - name: Check Semester Directory
         id: dir-check
