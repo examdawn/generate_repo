@@ -15,11 +15,11 @@ def create_folder_structure(course, subjects, labs, current_sem):
         with open(f"{base_path}/{current_sem}/{subject}/index.md", "w") as f:
             f.write(f"---\norder: 0\ntitle: {subject} - Syllabus\n---\n# {subject}\n")
         with open(f"{base_path}/{current_sem}/{subject}/assignments/index.md", "w") as f:
-            f.write(f"---\norder: 0\ntitle: {subject} - Assignments\n---\n# Assignments - {subject}\n")
+            f.write(f"---\norder: 0\ntitle: {subject} - Assignments\n---\n# {subject}\n## Assignments\n")
         with open(f"{base_path}/{current_sem}/{subject}/solved/index.md", "w") as f:
-            f.write(f"---\norder: 0\ntitle: {subject} - Solved Questions\n---\n# Solved Questions - {subject}\n")
+            f.write(f"---\norder: 0\ntitle: {subject} - Solved Questions\n---\n# {subject}\n## Solved Questions\n")
         with open(f"{base_path}/{current_sem}/{subject}/notes.md", "w") as f:
-            f.write(f"---\norder: 0\ntitle: {subject} - Notes\n---\n# Notes - {subject}\n")
+            f.write(f"---\norder: 0\ntitle: {subject} - Notes\n---\n# {subject}\n## Notes\n")
         print(f"Done generating folder: {base_path}/{current_sem}/{subject}")
 
     for lab in labs:
@@ -27,7 +27,7 @@ def create_folder_structure(course, subjects, labs, current_sem):
         with open(f"{base_path}/{current_sem}/{lab}/index.md", "w") as f:
             f.write(f"---\norder: 0\ntitle: {lab} - Syllabus\n---\n# {lab}\n")
         with open(f"{base_path}/{current_sem}/{lab}/lab/index.md", "w") as f:
-            f.write(f"---\norder: 0\ntitle: {lab} - Lab Records\n---\n# Lab Records - {lab}\n")
+            f.write(f"---\norder: 0\ntitle: {lab} - Lab Records\n---\n# {subject}\n## Lab Records\n")
 
     # Create root level index.md
     with open(f"{base_path}/index.md", "w") as f:
