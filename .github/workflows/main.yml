@@ -6,7 +6,7 @@ on:
         description: 'Course name (e.g., NEP2020_2023_BCA)'
         required: true
       addsem:
-        description: 'Semester to add (e.g., 3rdsem)'
+        description: 'Semester to add (e.g., 3rdsem), enter only one at a time'
         required: true
       subjects:
         description: 'Space-separated subjects (e.g., Sub1 Sub2)'
