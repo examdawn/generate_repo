@@ -51,6 +51,7 @@ features:  - icon: <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox
     for subject in subjects:
         os.makedirs(f"{base_path}/{current_sem}/{subject}/assignments", exist_ok=True)
         os.makedirs(f"{base_path}/{current_sem}/{subject}/solved", exist_ok=True)
+        os.makedirs(f"{base_path}/{current_sem}/{subject}/examprep", exist_ok=True)
         os.makedirs(f"{base_path}/{current_sem}/{subject}/notes", exist_ok=True)
 
         with open(f"{base_path}/{current_sem}/{subject}/index.md", "w") as f:
