@@ -61,6 +61,16 @@ order: 0
 title: {subject} - Syllabus
 ---
 # {subject}
+
+## Units
+<!-- Upload your Syllabus here. -->
+
+## Sections:
+- [Assignments](assignments)
+- [Solved Questions](solved)
+- ["Exam Preparation" Questions](examprep)
+- [Notes](notes)
+<!-- - [Lab Records](lab)   -->
 """)
         
         with open(f"{base_path}/{current_sem}/{subject}/assignments/index.md", "w") as f:
