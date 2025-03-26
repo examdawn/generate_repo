@@ -76,7 +76,8 @@ title: {subject} - Syllabus
         with open(f"{base_path}/{current_sem}/{subject}/assignments/index.md", "w") as f:
             f.write(f"""---
 order: 0
-title: {subject} - Assignments
+title: {subject} - Assignments List
+exclude: true
 ---
 # {subject}
 ## Assignments
@@ -86,6 +87,7 @@ title: {subject} - Assignments
             f.write(f"""---
 order: 0
 title: {subject} - Solved Questions
+exclude: true
 ---
 # {subject}
 ## Solved Questions
@@ -94,6 +96,7 @@ title: {subject} - Solved Questions
             f.write(f"""---
 order: 0
 title: {subject} - "Exam Preparation" Questions
+exclude: true
 ---
 # {subject}
 ## Faculty-Shared Solved Questions
@@ -102,6 +105,7 @@ title: {subject} - "Exam Preparation" Questions
             f.write(f"""---
 order: 0
 title: {subject} - Notes
+exclude: true
 ---
 # {subject}
 ## Notes
@@ -124,7 +128,7 @@ title: {lab} - Syllabus
         with open(f"{base_path}/{current_sem}/{lab}/lab/index.md", "w") as f:
             f.write(f"""---
 order: 0
-title: {lab} - Lab Records
+title: {lab} - View Lab Records
 ---
 # {lab}
 ## Lab Records
