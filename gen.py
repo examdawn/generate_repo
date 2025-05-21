@@ -159,16 +159,40 @@ features:
       link: ./{current_sem}
 
 ---
+---
+# https://vitepress.dev/reference/default-theme-home-page
+layout: home
 
-{course} is a comprehensive course designed to teach the fundamentals of Computer Science.
+hero:
+  name: "Exam Dawn - BCA"
+  tagline: "2023 Batch"
+  actions:
+    - theme: brand
+      text: Edit Content
+      link: https://github.com/examdawn/NEP_2023_BCA
+    - theme: alt
+      text: Go Back
+      link: ../../..
 
-### Content Contributors
+features:
+  - title: 3rd Semester
+    details: Click here to view 3rd Semester options
+    link: ./3rdsem
+  - title: 4th Semester
+    link: ./4thsem
+    details: Click here to view 4th Semester options
+---
 
-<a href="https://github.com/examdawn/{course}/graphs/contributors">
-<img src="https://contrib.rocks/image?repo=examdawn/{course}" />
+<p style="text-align: center;">BCA(Bachelor of Computer Applications){course} is a comprehensive course designed to teach the fundamentals of Computer Science.</p>
+
+<h6 style="text-align: center;">Ongoing: 4th Semester</h6>
+
+<h2 style="text-align: center;">Content Contributors</h2>
+<a style="text-align: center;" href="https://github.com/examdawn/{course}/graphs/contributors">
+  <img style="text-align: center;" src="https://contrib.rocks/image?repo=examdawn/{course}" />
 </a>
 
-Made with [contrib.rocks](https://contrib.rocks).
+<p style="text-align: center;">Made with [contrib.rocks](https://contrib.rocks).</p>
 """)
 
 if __name__ == "__main__":
