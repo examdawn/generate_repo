@@ -159,29 +159,6 @@ features:
       link: ./{current_sem}
 
 ---
----
-# https://vitepress.dev/reference/default-theme-home-page
-layout: home
-
-hero:
-  name: "Exam Dawn - BCA"
-  tagline: "2023 Batch"
-  actions:
-    - theme: brand
-      text: Edit Content
-      link: https://github.com/examdawn/NEP_2023_BCA
-    - theme: alt
-      text: Go Back
-      link: ../../..
-
-features:
-  - title: 3rd Semester
-    details: Click here to view 3rd Semester options
-    link: ./3rdsem
-  - title: 4th Semester
-    link: ./4thsem
-    details: Click here to view 4th Semester options
----
 
 <p style="text-align: center;">BCA(Bachelor of Computer Applications){course} is a comprehensive course designed to teach the fundamentals of Computer Science.</p>
 
